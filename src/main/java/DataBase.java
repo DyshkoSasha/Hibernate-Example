@@ -4,15 +4,17 @@ import org.hibernate.Transaction;
 import java.util.List;
 
 public class DataBase {
-    public void addUser(User user) {
+    public void add(User user, Adress adress) {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction tx1 = session.beginTransaction();
+        user.setAdress(adress);
         session.save(user);
+        session.save(adress);
         tx1.commit();
         session.close();
     }
 
-    public void deleteUser(User user) {
+    public void delete(User user) {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction tx1 = session.beginTransaction();
         session.delete(user);
@@ -20,35 +22,5 @@ public class DataBase {
         session.close();
     }
 
-    public void updateUser(User user) {
-        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-        Transaction tx1 = session.beginTransaction();
-        session.save(user);
-        tx1.commit();
-        session.close();
-    }
-
-    public User findByIdUser(int id) {
-        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(User.class, id);
-    }
-
-    public void deleteByIdUser(int id) {
-        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-        Transaction tx1 = session.beginTransaction();
-        session.delete(findByIdUser(id));
-        tx1.commit();
-        session.close();
-    }
-
-    public List<User> findAll() {
-        List<User> users = (List<User>)  HibernateSessionFactoryUtil.getSessionFactory().openSession().createQuery("From User").list();
-        return users;
-    }
-
-    public void deleteUsers(List <User> users) {
-        for (User user : users) {
-            deleteUser(user);
-        }
-    }
 
 }

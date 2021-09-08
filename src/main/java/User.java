@@ -1,10 +1,8 @@
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.UUID;
 
 
 @Data
@@ -23,12 +21,15 @@ public class User {
     private String lastName;
     @Column(name = "age")
     private int age;
-
+    @OneToOne(cascade = CascadeType.ALL)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JoinColumn(name = "id_adress_user")
+    private Adress adress;
     public User(String firstName, String lastName, int age) {
+
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
     }
-
 
 }
