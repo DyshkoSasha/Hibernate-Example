@@ -1,5 +1,6 @@
+package model;
+
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -30,10 +31,4 @@ public class Adress {
         this.house = house;
     }
 
-    public Adress(String city, String street, int house, User user) {
-        this.city = city;
-        this.street = street;
-        this.house = house;
-        this.user = user;
-    }
 }
