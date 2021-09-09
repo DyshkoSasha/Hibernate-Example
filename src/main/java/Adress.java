@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 
-@Data
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "user_address")
@@ -28,5 +28,12 @@ public class Adress {
         this.city = city;
         this.street = street;
         this.house = house;
+    }
+
+    public Adress(String city, String street, int house, User user) {
+        this.city = city;
+        this.street = street;
+        this.house = house;
+        this.user = user;
     }
 }

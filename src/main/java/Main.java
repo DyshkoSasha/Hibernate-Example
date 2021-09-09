@@ -19,11 +19,14 @@ public class Main {
         User user4 = new User("Sasha", "Soroka", 33);
         Adress adress4 = new Adress("Minsk", "Nezavisimosti", 87);
         dataBase.add(user4, adress4);
-//
+
         User user5 = new User("Enakentiy", "Mokronosov", 44);
         Adress adress5 = new Adress("Minsk", "Nezavisimosti", 27);
         dataBase.add(user5, adress5);
 
         dataBase.delete(user4);
+
+       List<User> list = dataBase.findAll(27);
+        System.out.println(list);
     }
 }

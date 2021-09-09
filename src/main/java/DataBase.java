@@ -1,3 +1,4 @@
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -22,5 +23,10 @@ public class DataBase {
         session.close();
     }
 
-
+    public List<User> findAll(Integer house) {
+        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        Query query = session.createQuery("FROM User u WHERE u.adress.house = " + house);
+        List <User> users = (List <User>) query.list();
+        return users;
+    }
 }
