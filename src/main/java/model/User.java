@@ -1,20 +1,19 @@
 package model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "users")
 @Entity
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id_user")
     private int id;
     @Column(name = "first_name")
@@ -24,7 +23,7 @@ public class User {
     @Column(name = "age")
     private int age;
     @OneToOne(cascade = CascadeType.ALL)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JoinColumn(name = "id_adress_user")
     private Adress adress;
 
