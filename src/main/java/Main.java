@@ -24,12 +24,12 @@ public class Main {
 //        dataBase.deleteByIdUser(2);
 //        dataBase.updateUser(user5);
 
-        User user6 = dataBase.findByIdUser(1);
-
-        dataBase.addUser(user6);
-
-        List<User> userList = dataBase.findAll();
-
-        dataBase.deleteUsers(userList);
+//        User user6 = dataBase.findByIdUser(1);
+//
+//        dataBase.addUser(user6);
+//
+//        List<User> userList = dataBase.findAll();
+//
+//        dataBase.deleteUsers(userList);
     }
 }
